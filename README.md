@@ -11,13 +11,13 @@ Docker (https://www.docker.com/)
 #### Teste com email válido:
 ```
 curl -XPOST '127.0.0.1:5000/api/v1/' -H 'Content-Type: application/json' -d '{"emailAddress":"teste@gmail.com","clientId":"MEUID","tokenId":"1234567890"}'
-```
+
 
 {
   "emailAddress": "teste@gmail.com",
   "status": 1
 }
-
+```
 #### Teste de Falha com palavra inapropriada:
 
 ```
