@@ -8,11 +8,10 @@ Docker (https://www.docker.com/)
 
 #### Realizar a chamada passando os seguintes dados:
 
+#### Teste com email válido:
 ```
 curl -XPOST '127.0.0.1:5000/api/v1/' -H 'Content-Type: application/json' -d '{"emailAddress":"teste@gmail.com","clientId":"MEUID","tokenId":"1234567890"}'
 ```
-
-Retorno de Sucesso:
 
 {
   "emailAddress": "teste@gmail.com",
