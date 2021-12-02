@@ -1,6 +1,6 @@
 # API de Validação de email com Flask
 
-API que faz a validação se um email é valido ou não e ainda utiliza uma blacklist de palavras inapropriadas.
+API que faz a validação de email e ainda utiliza uma blacklist de palavras inapropriadas.
 
 Docker (https://www.docker.com/)
 
