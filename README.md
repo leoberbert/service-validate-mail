@@ -12,7 +12,6 @@ Docker (https://www.docker.com/)
 ```
 curl -XPOST '127.0.0.1:5000/api/v1/' -H 'Content-Type: application/json' -d '{"emailAddress":"teste@gmail.com","clientId":"MEUID","tokenId":"1234567890"}'
 
-
 {
   "emailAddress": "teste@gmail.com",
   "status": 1
@@ -22,7 +21,6 @@ curl -XPOST '127.0.0.1:5000/api/v1/' -H 'Content-Type: application/json' -d '{"e
 
 ```
 curl -XPOST '127.0.0.1:5000/api/v1/' -H 'Content-Type: application/json' -d '{"emailAddress":"sexo@gmail.com","clientId":"MEUID","tokenId":"1234567890"}'
-```
 
 {
   "bounce": {
@@ -33,12 +31,11 @@ curl -XPOST '127.0.0.1:5000/api/v1/' -H 'Content-Type: application/json' -d '{"e
   "emailAddress": "sexo@gmail.com",
   "status": 2
 }
-
+```
 #### Teste de falha com email inválido:
 
 ```
 curl -XPOST '127.0.0.1:5000/api/v1/' -H 'Content-Type: application/json' -d '{"emailAddress":"testegmail.com","clientId":"MEUID","tokenId":"1234567890"}'
-```
 
 {
   "bounce": {
@@ -49,4 +46,4 @@ curl -XPOST '127.0.0.1:5000/api/v1/' -H 'Content-Type: application/json' -d '{"e
   "emailAddress": "testegmail.com",
   "status": 2
 }
-
+```
