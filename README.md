@@ -19,10 +19,11 @@ Retorno de Sucesso:
   "status": 1
 }
 
+Teste de Falha com palavra inapropriada:
+
 ```
 curl -XPOST '127.0.0.1:5000/api/v1/' -H 'Content-Type: application/json' -d '{"emailAddress":"sexo@gmail.com","clientId":"MEUID","tokenId":"1234567890"}'
 ```
-Retorno de Falha com palavra inapropriada:
 
 {
   "bounce": {
@@ -34,11 +35,11 @@ Retorno de Falha com palavra inapropriada:
   "status": 2
 }
 
+Teste de falha com email inválido:
+
 ```
 curl -XPOST '127.0.0.1:5000/api/v1/' -H 'Content-Type: application/json' -d '{"emailAddress":"testegmail.com","clientId":"MEUID","tokenId":"1234567890"}'
 ```
-
-Retorno de falha para email inválido:
 
 {
   "bounce": {
