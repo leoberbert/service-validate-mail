@@ -22,6 +22,9 @@ if path.exists('blacklist.conf') == False:
 config = open("blacklist.conf","r").read().splitlines()
 pattern = '.*|.*'.join(config)
 
+cli = sys.modules['flask.cli']
+cli.show_server_banner = lambda *x: None
+
 app = Flask(__name__)
 api = Api(app)
 
