@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 #=============================================================
 # Created: Tue 30 Nov 2021 10:47:14 PM -03
-# Modified: Tue 30 Nov 2021 10:47:14 PM -03
 #=============================================================
 # Description: API that checks if the email is valid.
 # Autor: Leonardo Berbert Gomes 
