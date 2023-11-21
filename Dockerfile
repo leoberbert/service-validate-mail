@@ -1,11 +1,23 @@
-FROM python:3.8-slim-buster
+FROM cgr.dev/chainguard/wolfi-base as builder
 
-WORKDIR /appl
-ENV WERKZEUG_RUN_MAIN=true
-COPY service-validate-mail.py /appl
+RUN apk add python3~3.11 py3.11-pip
+RUN adduser -D -u 65332 leoberbert
+USER leoberbert
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt --user
 
-COPY blacklist.conf requirements.txt /appl/
+FROM cgr.dev/chainguard/wolfi-base
 
-RUN pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host=files.pythonhosted.org --upgrade pip  && pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host=files.pythonhosted.org --no-cache-dir -r /appl/requirements.txt 
+RUN apk add python3~3.11
+RUN adduser -D -u 65332 leoberbert
+WORKDIR /app
 
-CMD ["python3","service-validate-mail.py"]
+COPY --from=builder /home/leoberbert/.local/lib/python3.11/site-packages /home/leoberbert/.local/lib/python3.11/site-packages
+
+USER leoberbert
+COPY service-validate-mail.py blacklist.conf .
+
+WORKDIR /app
+
+ENTRYPOINT [ "python", "/app/service-validate-mail.py" ]
