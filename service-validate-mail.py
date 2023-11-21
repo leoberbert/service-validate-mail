@@ -59,8 +59,13 @@ class Mail(Resource):
                     "detail": "Invalid mail format", 
                     "code": 990
                     }
-                }) 
-
+                })
+                
+class Health(Resource):
+    def get(self):
+        response = "OK"
+        return response
+        
 def ValidateMail(email):
     try:
         valid = validate_email(email)
@@ -74,6 +79,7 @@ def ValidateMail(email):
         print(str(e))
 
 api.add_resource(Mail, '/api/v1/',methods = ['POST']) 
+api.add_resource(Health, '/health',methods = ['GET'])
 
 if __name__ == '__main__': 
     app.run(host='0.0.0.0')
